@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-6 shadow">
+        <div class="modal-header border-bottom-0">
+
+
+          <form method="post" action="/upload" enctype="multipart/form-data">
+              <h1>Upload video</h1>
+    <p class="lead">Crossroads:</p><select name="cross">
+                     <option value="0">NO</option>
+                     <option value="1">YES</option>
+                 </select>
+    <p class="lead">Animals:</p><select name="animals">
+                     <option value="0">NO</option>
+                     <option value="1">YES</option>
+                 </select><br>
+              <input type=file name=inputfile><br>
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+          </form>
+        </div>
+         </div>
+      </div>
+
+
+
+
+{% endblock %}

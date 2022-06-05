@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+ <h1>Video : </h1>
+    <form data-method="delete" action="/download/all" enctype="multipart/form-data">
+          <button  type="submit" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Download all</button>
+          </form>
+
+ {% for el in posts %}
+    <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title">{{ el.filename }}</h5>
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+      </div>
+      <div class="modal-body py-0">
+          <p>Number of crossroads: {{ el.cross }}</p>
+          <p>Number of animals: {{ el.animals }}</p>
+          <p>path: {{ el.path }}</p>
+          <p>ID: {{ el.id }} </p>
+      </div>
+      <div class="modal-footer flex-column border-top-0">
+           <form data-method="delete" action="/posts/one/{{ el.id }}" enctype="multipart/form-data">
+          <button  type="submit" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Update</button>
+          </form>
+
+
+
+          <form data-method="delete" action="/delete/{{ el.id }}" enctype="multipart/form-data">
+          <button  type="submit" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Delete</button>
+          </form>
+<!--            <form data-method="delete" action="/posts/one/{{ el.id }}" enctype="multipart/form-data">-->
+<!--          <button  type="submit" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Delete1</button>-->
+<!--          </form>-->
+          <form data-method="delete" action="/download/{{ el.id }}" enctype="multipart/form-data">
+          <button  type="submit" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Download</button>
+          </form>
+        </div>
+    </div>
+  </div>
+ {% endfor %}
+</div>
+
+{% endblock %}
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content rounded-6 shadow">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body py-0">
+        <p>This is a modal sheet, a variation of the modal that docs itself to the bottom of the viewport like the newer share sheets in iOS.</p>
+      </div>
+      <div class="modal-footer flex-column border-top-0">
+        <button type="button" class="btn btn-lg btn-primary w-100 mx-0 mb-2">Save changes</button>
+        <button type="button" class="btn btn-lg btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
